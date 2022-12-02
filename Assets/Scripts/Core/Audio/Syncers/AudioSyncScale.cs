@@ -25,11 +25,12 @@ public class AudioSyncScale : AudioSyncer
     {
         Vector3 currentScale = transform.localScale;
         Vector3 initialScale = currentScale;
+        Vector3 editedScale = new(targetScale.x, (targetScale.y + audioValue)/beatScale.y, targetScale.z);
         float timer = 0;
 
-        while (currentScale != targetScale)
+        while (currentScale != editedScale)
         {
-            currentScale = Vector3.Lerp(initialScale, targetScale, timer / timeToBeat);
+            currentScale = Vector3.Lerp(initialScale, editedScale, timer / timeToBeat);
             timer += Time.deltaTime;
 
             transform.localScale = currentScale;
@@ -37,5 +38,6 @@ public class AudioSyncScale : AudioSyncer
         }
         isBeat = false;
     }
+
 
 }

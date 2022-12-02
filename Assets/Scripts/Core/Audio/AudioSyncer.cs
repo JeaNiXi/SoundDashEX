@@ -10,7 +10,7 @@ public class AudioSyncer : MonoBehaviour
     public float restSmoothTime;
 
     private float previousAudioValue;
-    private float audioValue;
+    protected float audioValue; // changed from private
     private float timer;
 
     protected bool isBeat;
@@ -25,19 +25,23 @@ public class AudioSyncer : MonoBehaviour
         previousAudioValue = audioValue;
         audioValue = AudioSpectrum.SpectrumValue;
 
-        if (previousAudioValue > bias && audioValue <= bias)
-            if (timer > timeStep)
-                OnBeat();
+        //if (previousAudioValue > bias && audioValue <= bias)
+        //    if (timer > timeStep)
+        //    {
+        //        Debug.Log("Call First Beat");
+        //        OnBeat();
+        //    }
         if (previousAudioValue <= bias && audioValue > bias)
-            if (timer > timeStep)
+            //if (timer > timeStep)
+            //{
                 OnBeat();
+            //}
 
         timer += Time.deltaTime;
     }
 
     public virtual void OnBeat()
     {
-        Debug.Log("Beat");
         timer = 0;
         isBeat = true;
     }
