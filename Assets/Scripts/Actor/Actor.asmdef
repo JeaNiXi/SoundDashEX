@@ -1,8 +1,8 @@
 {
-    "name": "Core",
+    "name": "Actor",
     "rootNamespace": "",
     "references": [
-        "GUID:75469ad4d38634e559750d17036d5f7c"
+        "GUID:025a74ffd17ccf84fa92a4b9d46b8f61"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
